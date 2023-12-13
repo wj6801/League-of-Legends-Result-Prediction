@@ -8,6 +8,8 @@ by WonJae Lee (wolee@ucsd.edu)
 
 Given the massive dataset, anyone who is interest in competitive League of Legends games would want to know this: will my team win or lose? To answer this question, we will use the cleaned dataset from our previous analysis, which is all 2022 League of Legends competitive game data. Here, we will focus on LCK, the Worlds winning league for the year, as it is one of the most competitive leagues, yielding quality data, and has much more data than the Worlds. In addition to the cleaning that was already done, we will add another feature, 'opp_teamname', which is the name of the opponent team. We will use binary classification to predict result (win/loss), and F1 score as our metric. F1-score is useful in this case because although the dataset might seem balanced, there are many imbalances in team performance and the "meta" champion peformance. For example, a particular team might be overwhelmingly stronger than others, and there could be a few champions with significantly higher winrate or performance than others. Because of the expected imbalance and the equal importance of precision and recall, we will choose F1 score over accuracy and other metrics. 
 
+Our explanatory data analysis on this dataset can be found [here](https://wj6801.github.io/League-of-Legends-Win-Rate-Analysis/)
+
 Moreover, we will choose a set of reasonable features to predict the result. We will try to predict the result of the game before the game begins; therefore, we will use only the data available to us before the game begins. For our base model, we will use 'side' and 'champion' to predict the result. For convenience, we will select only the columns we will use in our analysis.
 
 
