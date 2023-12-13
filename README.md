@@ -26,6 +26,7 @@ Moreover, we will choose a set of reasonable features to predict the result. We 
 |  8 | Red    | Jhin       | Liiv SANDBOX | Renekton | Lee Sin | Leona        | Jayce   | Akali  | DRX            |
 |  9 | Red    | Yuumi      | Liiv SANDBOX | Renekton | Lee Sin | Leona        | Jayce   | Akali  | DRX            |
 
+---
 
 ## Baseline Model
 
@@ -39,6 +40,7 @@ There are not many pre-game features available to us. From the few pre-game feat
 
 We get a f1-score of slightly above 50%, which is not that great. A low F1 score (close to 0) indicates a lack of balance, meaning the model is either missing too many actual wins/losses (low recall) or is incorrectly classifying too many matches (low precision). It's barely better than just coin flipping. We will need to include more features and tune hyperparameters to see a better result.
 
+---
 
 ## Final Model
 
@@ -50,6 +52,7 @@ Our final model remains to be Random Forest Classifier because of its suitabilit
 
 We choose to tune 5 parameters: n_estimators (100, 200, 500), criterion ('gini', 'entropy'), max_depth (3, 4, 5), min_samples_split (2, 5, 10), and min_samples_leaf (1, 2, 3, 5) through GridSearchCV. The resulting best parameters are n_esimators=500, criterion='gini', max_depth=5, min_samples_split=2, min_samples_leaf=1. The f1-score improved from 0.58 to 0.79, and this is a huge improvment and decent performance considering it is using only pre-game data, without any in-game or after-game data.
 
+---
 
 ## Fairness Analysis
 
