@@ -75,6 +75,6 @@ To perform our fairness analysis, we first define our test statistic, f1_diff th
 Next, we define the null simulation where we shuffle the X_test on 'side' column and calculate a single test statistic for the shuffled data.
 Then, we simulate the null 1000 times and calculate our p value using the simulation results and our observed statistic.
 
-<iframe src="./assets/f1_score.html" width=1000 height=500 frameBorder=0></iframe>
+<iframe src="./assets/diff_f1.html" width=1000 height=500 frameBorder=0></iframe>
 
 With the test statistic of -0.01, we obtained the p-value of 0.554, failing to reject the null. Therefore, we do not have enough evidence to conclude that our model performs differently for Blue and Red sides.
