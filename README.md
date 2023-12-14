@@ -40,14 +40,14 @@ There are not many pre-game features available to us. From the few pre-game feat
 
 We get a f1-score of slightly above 0.57, which is not that great as a prediction measurement. A low F1 score (close to 0) indicates a lack of balance, meaning the model is either missing too many actual wins/losses (low recall) or is incorrectly classifying too many matches (low precision). It's just a bit better than coin flipping. We will need to include more features and tune hyperparameters to see a better result. However, we need to consider that this is using only 3 pre-games features with no hyperparameter tuning. So, taking that into consideration, the f1-score of 0.57 we obtained here might not be a great model, but it is not a bad one as a baseline model given extremely limited information. We can further evaluate the model's performance through the confusion matrix below.
 
-<iframe src="./assets/cm_b.html" width=500 height=500 frameBorder=0></iframe>
+<iframe src="./assets/cm_b.html" width=700 height=700 frameBorder=0></iframe>
 
 From the confusion matrix, we can calculate the performance of the model with various metrics.
 
-**Accuracy**  : 0.5753424657534246
-**Precision** : 0.5610561056105611
-**Recall**    : 0.5964912280701754
-**F1-score**  : 0.5782312925170068
+**Accuracy**  : 0.5753424657534246\n
+**Precision** : 0.5610561056105611\n
+**Recall**    : 0.5964912280701754\n
+**F1-score**  : 0.5782312925170068\n
 
 ---
 
@@ -61,7 +61,7 @@ Our final model remains to be Random Forest Classifier because of its suitabilit
 
 We choose to tune 5 parameters: n_estimators (100, 200, 500), criterion ('gini', 'entropy'), max_depth (3, 4, 5), min_samples_split (2, 5, 10), and min_samples_leaf (1, 2, 3, 5) through GridSearchCV. The resulting best parameters are n_esimators=500, criterion='gini', max_depth=5, min_samples_split=2, min_samples_leaf=1. The f1-score improved from 0.58 to 0.79, and this is a huge improvment. An f1-score of 0.79 might look unsatisfying for a precitive model, but considering it is using only pre-game data without any in-game or after-game data, it is showing a decent performance. We can further evaluate the model's performance through the confusion matrix below.
 
-<iframe src="./assets/cm_f.html" width=500 height=500 frameBorder=0></iframe>
+<iframe src="./assets/cm_f.html" width=700 height=700 frameBorder=0></iframe>
 
 From the confusion matrix, we can calculate the performance of the model with various metrics.
 **Accuracy**  : 0.7810344827586206
