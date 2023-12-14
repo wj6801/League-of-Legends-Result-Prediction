@@ -44,10 +44,13 @@ We get a f1-score of slightly above 0.57, which is not that great as a predictio
 
 From the confusion matrix, we can calculate the performance of the model with various metrics.
 
-**Accuracy**  : 0.5753424657534246\n
-**Precision** : 0.5610561056105611\n
-**Recall**    : 0.5964912280701754\n
-**F1-score**  : 0.5782312925170068\n
+**Accuracy**  : 0.5753424657534246
+
+**Precision** : 0.5610561056105611
+
+**Recall**    : 0.5964912280701754
+
+**F1-score**  : 0.5782312925170068
 
 ---
 
@@ -64,9 +67,13 @@ We choose to tune 5 parameters: n_estimators (100, 200, 500), criterion ('gini',
 <iframe src="./assets/cm_f.html" width=700 height=700 frameBorder=0></iframe>
 
 From the confusion matrix, we can calculate the performance of the model with various metrics.
+
 **Accuracy**  : 0.7810344827586206
+
 **Precision** : 0.7714285714285715
+
 **Recall**    : 0.7954939341421143
+
 **F1-score**  : 0.7832764505119454
 
 ---
