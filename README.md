@@ -38,7 +38,7 @@ There are not many pre-game features available to us. From the few pre-game feat
 
 **Baseline Model Report**
 
-We get a f1-score of slightly above 50%, which is not that great. A low F1 score (close to 0) indicates a lack of balance, meaning the model is either missing too many actual wins/losses (low recall) or is incorrectly classifying too many matches (low precision). It's barely better than just coin flipping. We will need to include more features and tune hyperparameters to see a better result.
+We get a f1-score of slightly above 0.57, which is not that great as a prediction measurement. A low F1 score (close to 0) indicates a lack of balance, meaning the model is either missing too many actual wins/losses (low recall) or is incorrectly classifying too many matches (low precision). It's just a bit better than coin flipping. We will need to include more features and tune hyperparameters to see a better result. However, we need to consider that this is using only 3 pre-games features with no hyperparameter tuning. So, taking that into consideration, the f1-score of 0.57 we obtained here might not be a great model, but it is not a bad one as a baseline model given extremely limited information.
 
 ---
 
@@ -46,11 +46,11 @@ We get a f1-score of slightly above 50%, which is not that great. A low F1 score
 
 **New Features**: bans (1 - 5), opp_teamname
 
-We have access to 5 banned champions per team before the game starts. We also created a new feature 'opp_teamname' because some teams are more likely to win against certain teams while less likely to win against others. Banned champions greatly influence picked champions—you obviously can't pick them, so you will have to adjust your entire team composition accordingly. By including 5 bans for each team, we will have more information about the game before it starts.
+We have access to 5 banned champions per team before the game starts. We also created a new feature 'opp_teamname' and included it in our final model because some teams are more likely to win against certain teams while less likely to win against others. Banned champions greatly influence picked champions—you obviously can't pick them, so you will have to adjust your entire team composition accordingly. Also banning some 'counter' champions that your champion is weak against is a popular strategy. And there are many more ways to utilize bans. Therefore, bans are very influential and informative data we can obtain before the game starts.
 
 Our final model remains to be Random Forest Classifier because of its suitability for solving this problem as mentioned when choosing our baseline model. Its ability to handle complex datasets and provide robust predictions makes it a good model for this problem.
 
-We choose to tune 5 parameters: n_estimators (100, 200, 500), criterion ('gini', 'entropy'), max_depth (3, 4, 5), min_samples_split (2, 5, 10), and min_samples_leaf (1, 2, 3, 5) through GridSearchCV. The resulting best parameters are n_esimators=500, criterion='gini', max_depth=5, min_samples_split=2, min_samples_leaf=1. The f1-score improved from 0.58 to 0.79, and this is a huge improvment and decent performance considering it is using only pre-game data, without any in-game or after-game data.
+We choose to tune 5 parameters: n_estimators (100, 200, 500), criterion ('gini', 'entropy'), max_depth (3, 4, 5), min_samples_split (2, 5, 10), and min_samples_leaf (1, 2, 3, 5) through GridSearchCV. The resulting best parameters are n_esimators=500, criterion='gini', max_depth=5, min_samples_split=2, min_samples_leaf=1. The f1-score improved from 0.58 to 0.79, and this is a huge improvment. An f1-score of 0.79 might look unsatisfying for a precitive model, but considering it is using only pre-game data without any in-game or after-game data, it is showing a decent performance.
 
 ---
 
