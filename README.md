@@ -62,19 +62,19 @@ We have access to 5 banned champions per team before the game starts. We also cr
 
 Our final model remains to be Random Forest Classifier because of its suitability for solving this problem as mentioned when choosing our baseline model. Its ability to handle complex datasets and provide robust predictions makes it a good model for this problem.
 
-We choose to tune 5 parameters: n_estimators (100, 200, 500), criterion ('gini', 'entropy'), max_depth (3, 4, 5), min_samples_split (2, 5, 10), and min_samples_leaf (1, 2, 3, 5) through GridSearchCV. The resulting best parameters are n_esimators=500, criterion='gini', max_depth=5, min_samples_split=2, min_samples_leaf=1. The f1-score improved from 0.58 to 0.79, and this is a huge improvment. An f1-score of 0.79 might look unsatisfying for a precitive model, but considering it is using only pre-game data without any in-game or after-game data, it is showing a decent performance. We can further evaluate the model's performance through the confusion matrix below.
+We choose to tune 5 parameters: n_estimators (100, 200, 500), criterion ('gini', 'entropy'), max_depth (3, 4, 5), min_samples_split (2, 5, 10), and min_samples_leaf (1, 2, 3, 5) through GridSearchCV. The resulting best parameters are n_esimators=500, criterion='gini', max_depth=5, min_samples_split=2, min_samples_leaf=1. The f1-score improved from 0.58 to 0.80, and this is a huge improvment. An f1-score of 0.80 might look unsatisfying for a precitive model, but considering it is using only pre-game data without any in-game or after-game data, it is showing a decent performance. After we find the hyperparameters, we retrain our final model the the entire dataset. We can further evaluate the model's performance through the confusion matrix below.
 
 <iframe src="./assets/cm_f.html" width=700 height=700 frameBorder=0></iframe>
 
 From the confusion matrix, we can calculate the performance of the model with various metrics.
 
-**Accuracy**  : 0.7810344827586206
+**Accuracy**  : 0.79593147751606
 
-**Precision** : 0.7714285714285715
+**Precision** : 0.7918074324324325
 
-**Recall**    : 0.7954939341421143
+**Recall**    : 0.8029978586723768
 
-**F1-score**  : 0.7832764505119454
+**F1-score**  : 0.7973633850733575
 
 ---
 
@@ -104,4 +104,4 @@ Then, we simulate the null 1000 times and calculate our p value using the simula
 
 <iframe src="./assets/diff_f1.html" width=1000 height=500 frameBorder=0></iframe>
 
-With the test statistic of -0.01, we obtained the p-value of 0.554, failing to reject the null. Therefore, we do not have enough evidence to conclude that our model performs differently for Blue and Red sides.
+Based on the test statistic of -0.04 and the resulting p-value of 0.846, we do not have sufficient evidence to reject the null hypothesis at a 0.05 significance level, suggesting that the model does not show significant unfairness between the Blue and Red sides.
